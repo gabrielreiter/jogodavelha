@@ -1,0 +1,71 @@
+:root {
+    --bg: #EFEFEF;
+    --card-bg: #FFFFFF;
+    --primary: #2C3E50;
+    --accent: #E74C3C;
+    --hover: #ECF0F1;
+    --shadow: rgba(0, 0, 0, 0.15);
+    --font: 'Roboto', sans-serif;
+  }
+  
+  * { box-sizing: border-box; }
+  body {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; min-height: 100vh;
+    margin:0; background: var(--bg);
+    font-family: var(--font); color: var(--primary);
+  }
+  
+  h1 { margin-bottom: 1rem; font-size: 2.5rem; }
+  
+  .board {
+    display: grid; grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(3, 120px);
+    gap: 12px; padding: 16px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 8px 16px var(--shadow);
+  }
+  
+  .cell {
+    position: relative;
+    background: var(--hover);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem; cursor: pointer;
+    transition: transform 0.1s ease, background 0.2s ease;
+  }
+  
+  .cell:hover { background: var(--card-bg); transform: translateY(-2px); }
+  .cell:active { transform: translateY(0); }
+  .cell.winner {
+    background: var(--accent);
+    color: #FFF;
+    animation: pulse 0.5s infinite alternate;
+  }
+  
+  @keyframes pulse {
+    to { box-shadow: 0 0 8px var(--accent); }
+  }
+  
+  #status {
+    margin-top: 16px; font-size: 1.25rem;
+    padding: 12px 24px; border-radius: 8px;
+    background: var(--card-bg); box-shadow: 0 4px 12px var(--shadow);
+  }
+  
+  button {
+    margin-top: 12px; padding: 12px 24px;
+    font-size: 1rem; border: none; border-radius: 8px;
+    background: var(--primary); color: #FFF;
+    cursor: pointer; transition: background 1s ease;
+  }
+  button:hover { background: darken(var(--primary),10%); }
+  button:focus { outline: 2px solid var(--accent); }
+  
+  @media (max-width: 480px) {
+    .board { grid-template: repeat(3, 20vw) / repeat(3, 20vw); gap: 4vw; }
+    .cell { font-size: 8vw; }
+    button, #status { width: 90vw; }
+  }
+  

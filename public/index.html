@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Jogo da Velha</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Tic Tac Toe</h1>
+  <div>
+    Sala: <input id="roomInput" placeholder="ex: sala123" />
+    <button id="btnJoin">Entrar</button>
+  </div>
+  <p id="roomName" style="margin-top: 0.5rem; font-weight: bold;"></p>
+  <div class="board" id="board"></div>
+  <p id="status"></p>
+  <button id="btnReset">Reiniciar</button>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
